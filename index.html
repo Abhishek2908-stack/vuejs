@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Vue js
+    </title>
+    <script src="https://unpkg.com/vue"></script>
+    <link href="style.css" rel="stylesheet" />
+
+</head>
+
+<body>
+    <div id="vue-app">
+      <h6>{{ greet() }}</h6>
+        <h6>{{ greet2('Afternoon') }}</h6>
+        <h6>Name : {{name}}</h6>
+        <h6>Job : {{job}}</h6>
+
+        <h1>Data Binding</h1>
+        <a v-bind:href="website">Youtube</a><br><br>
+        <input type="text" v-bind:value="name"/><br><br>
+        <input type="text" v-bind:value="job"/><br><br>
+        <p v-html="websiteTag"></p>
+
+
+        <h1>Events</h1>
+        <button v-on:click="age++">Add a year</button>
+        <button  v-on:click="age--">Substract a year</button>
+        <p>My Age is {{age}}</p>
+
+        <h1>Events Methods</h1>
+        <button @click.once="add(1)">Add a year</button>
+        <button  v-on:click="substract(1)">Substract a year</button>
+        <button v-on:dblclick="add(10)">Add a 10 year</button>
+        <button  v-on:dblclick="substract(10)">Substract a 10 year</button>
+        <p>My Age is {{age1}}</p>
+
+        <h1>Mouse Events</h1>
+        <div id="canvas" v-on:mousemove="updateXY">{{x}},{{y}}</div><br><br>
+        <a v-on:click.prevent="click" href="https://www.youtube.com">Youtube</a><br><br>
+
+        <h1>Keyboard Events</h1>
+        <label>Name: </label>
+        <input type="text" v-on:keyup.alt.enter="logName" />
+        <label>Age: </label>
+        <input type="text" v-on:keyup="logAge" />
+
+        <h1>Two way data Binding</h1>
+          <label>Name: </label>
+          <input type="text" v-model="newname"  />
+          <span>{{newname}}</span><br><br>
+          <label>Age: </label>
+          <input type="text" v-model="newage"/>
+          <span>{{newage}}</span>
+
+        <h1>Computed properties</h1>
+        <button v-on:click="a++">Add to a A</button>
+        <button v-on:click="b++">Add to a B</button><br><br>
+        <p>A - {{a}}</p>
+        <p>B - {{b}}</p>
+        <p>Age + A ={{addToA}}</p>
+        <p>Age + B ={{addToB}}</p>
+
+        <h1>Dynamic Css</h1>
+        <h2>Example 1</h2>
+        <div @click="available=!available" v-bind:class="{available:available}">
+        <span>Delta</span>
+        </div>
+        <h2>Example 2</h2>
+        <button @click="nearby=!nearby">Toggle nearby</button>
+        <button @click="available=!available">Toggle available</button>
+        <div v-bind:class="compClasses">
+        <span>Delta</span>
+        </div>
+
+        <h1>Conditionals</h1>
+        <button v-on:click='error=!error'>Toggle Error</button>
+        <button v-on:click='success=!success'>Toggle Success</button>
+        <!--<p v-if='error'>There is an error</p>
+        <p v-else-if='success'>There is a success</p>-->
+        <p v-show='error'>There is an error</p>
+        <p v-show='success'>There is a success</p>
+
+        <h1>For loop</h1>
+        <ul>
+          <li v-for='(names,index) in nameList'>{{index}}.{{names}}</li>
+        </ul>
+
+        <h1>For loop object</h1>
+        <ul>
+          <li v-for='student in studentList'>{{student.sName}} - {{student.sAge}}</li>
+        </ul>
+
+        <div v-for='student in studentList'>
+          <h4>{{student.sName}}</h4>
+          <p>{{student.sAge}}</p>
+        </div>
+
+          <h1>For loop object template</h1>
+        <template v-for='student in studentList'>
+          <h4>{{student.sName}}</h4>
+          <p>{{student.sAge}}</p>
+        </template>
+
+        <template v-for='student in studentList'>
+          <div v-for='(val,key) in student'>
+            <p>{{key}} - {{val}}</p>
+          </div>
+        </template>
+
+        <h1>Small game project</h1>
+        <div id="bag" v-bind:class="{burst:ended}"></div>
+
+        <div id="bag-health">
+          <div v-bind:style="{width:health + '%'}"></div>
+        </div>
+
+        <div id="controls">
+          <button @click="punch" v-show="!ended">Punch</button>
+          <button @click="restart">Restart</button>
+        </div>
+
+        <h1>Components </h1>
+        <greeting></greeting>
+
+        <h1>References</h1>
+        <input type="text" ref="input"/>
+        <button v-on:click="readRefs">Submit</button>
+        <p>I am {{output}}</p>
+        <div ref="test">Hello Ref div</div>
+    </div>
+
+    <h1>Multiple instance View</h1>
+    <div id="vue-app-one">
+      <h3>{{title}}</h3>
+      <p>{{greet}}</p>
+    </div>
+
+    <div id="vue-app-two">
+      <h3>{{title}}</h3>
+      <p>{{greet}}</p>
+      <button @click="changeTitle">Change title app one</button>
+    </div>
+
+
+    <script src="app.js"></script>
+
+</body>
+
+</html>
