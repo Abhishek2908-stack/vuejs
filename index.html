@@ -12,28 +12,29 @@
 
 <body>
     <div id="vue-app">
-      <h6>{{ greet() }}</h6>
+        <h6>{{ greet() }}</h6>
+        <h6>{{ greet() }}</h6>
         <h6>{{ greet2('Afternoon') }}</h6>
         <h6>Name : {{name}}</h6>
         <h6>Job : {{job}}</h6>
 
         <h1>Data Binding</h1>
         <a v-bind:href="website">Youtube</a><br><br>
-        <input type="text" v-bind:value="name"/><br><br>
-        <input type="text" v-bind:value="job"/><br><br>
+        <input type="text" v-bind:value="name" /><br><br>
+        <input type="text" v-bind:value="job" /><br><br>
         <p v-html="websiteTag"></p>
 
 
         <h1>Events</h1>
         <button v-on:click="age++">Add a year</button>
-        <button  v-on:click="age--">Substract a year</button>
+        <button v-on:click="age--">Substract a year</button>
         <p>My Age is {{age}}</p>
 
         <h1>Events Methods</h1>
         <button @click.once="add(1)">Add a year</button>
-        <button  v-on:click="substract(1)">Substract a year</button>
+        <button v-on:click="substract(1)">Substract a year</button>
         <button v-on:dblclick="add(10)">Add a 10 year</button>
-        <button  v-on:dblclick="substract(10)">Substract a 10 year</button>
+        <button v-on:dblclick="substract(10)">Substract a 10 year</button>
         <p>My Age is {{age1}}</p>
 
         <h1>Mouse Events</h1>
@@ -47,12 +48,12 @@
         <input type="text" v-on:keyup="logAge" />
 
         <h1>Two way data Binding</h1>
-          <label>Name: </label>
-          <input type="text" v-model="newname"  />
-          <span>{{newname}}</span><br><br>
-          <label>Age: </label>
-          <input type="text" v-model="newage"/>
-          <span>{{newage}}</span>
+        <label>Name: </label>
+        <input type="text" v-model="newname" />
+        <span>{{newname}}</span><br><br>
+        <label>Age: </label>
+        <input type="text" v-model="newage" />
+        <span>{{newage}}</span>
 
         <h1>Computed properties</h1>
         <button v-on:click="a++">Add to a A</button>
@@ -65,13 +66,13 @@
         <h1>Dynamic Css</h1>
         <h2>Example 1</h2>
         <div @click="available=!available" v-bind:class="{available:available}">
-        <span>Delta</span>
+            <span>Delta</span>
         </div>
         <h2>Example 2</h2>
         <button @click="nearby=!nearby">Toggle nearby</button>
         <button @click="available=!available">Toggle available</button>
         <div v-bind:class="compClasses">
-        <span>Delta</span>
+            <span>Delta</span>
         </div>
 
         <h1>Conditionals</h1>
@@ -84,20 +85,20 @@
 
         <h1>For loop</h1>
         <ul>
-          <li v-for='(names,index) in nameList'>{{index}}.{{names}}</li>
+            <li v-for='(names,index) in nameList'>{{index}}.{{names}}</li>
         </ul>
 
         <h1>For loop object</h1>
         <ul>
-          <li v-for='student in studentList'>{{student.sName}} - {{student.sAge}}</li>
+            <li v-for='student in studentList'>{{student.sName}} - {{student.sAge}}</li>
         </ul>
 
         <div v-for='student in studentList'>
-          <h4>{{student.sName}}</h4>
-          <p>{{student.sAge}}</p>
+            <h4>{{student.sName}}</h4>
+            <p>{{student.sAge}}</p>
         </div>
 
-          <h1>For loop object template</h1>
+        <h1>For loop object template</h1>
         <template v-for='student in studentList'>
           <h4>{{student.sName}}</h4>
           <p>{{student.sAge}}</p>
@@ -113,19 +114,19 @@
         <div id="bag" v-bind:class="{burst:ended}"></div>
 
         <div id="bag-health">
-          <div v-bind:style="{width:health + '%'}"></div>
+            <div v-bind:style="{width:health + '%'}"></div>
         </div>
 
         <div id="controls">
-          <button @click="punch" v-show="!ended">Punch</button>
-          <button @click="restart">Restart</button>
+            <button @click="punch" v-show="!ended">Punch</button>
+            <button @click="restart">Restart</button>
         </div>
 
         <h1>Components </h1>
         <greeting></greeting>
 
         <h1>References</h1>
-        <input type="text" ref="input"/>
+        <input type="text" ref="input" />
         <button v-on:click="readRefs">Submit</button>
         <p>I am {{output}}</p>
         <div ref="test">Hello Ref div</div>
@@ -133,14 +134,14 @@
 
     <h1>Multiple instance View</h1>
     <div id="vue-app-one">
-      <h3>{{title}}</h3>
-      <p>{{greet}}</p>
+        <h3>{{title}}</h3>
+        <p>{{greet}}</p>
     </div>
 
     <div id="vue-app-two">
-      <h3>{{title}}</h3>
-      <p>{{greet}}</p>
-      <button @click="changeTitle">Change title app one</button>
+        <h3>{{title}}</h3>
+        <p>{{greet}}</p>
+        <button @click="changeTitle">Change title app one</button>
     </div>
 
 
